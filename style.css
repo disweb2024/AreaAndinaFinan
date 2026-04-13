@@ -1,0 +1,200 @@
+:root {
+  --verde: #7bc47f;
+  --verde-suave: #e8f5e9;
+  --blanco: #ffffff;
+  --gris: #555;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
+body { background:var(--blanco); color:var(--gris); }
+
+.main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(123,196,127,0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: white;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.btn-cta {
+  background: white;
+  color: #4caf50;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-cta:hover {
+  background: #e8f5e9;
+}
+
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hero.png');
+  background-size: cover;        /* 🔥 Ajusta la imagen sin deformarla */
+  background-position: center;   /* 📌 Centra la imagen */
+  background-repeat: no-repeat;  /* 🚫 Evita repeticiones */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  align-items: flex-end;   /* 👈 aquí está el cambio */
+  padding-bottom: 40px;    /* 👈 espacio abajo */
+  text-align: center;
+}
+
+section { padding:40px 20px; }
+.container { max-width:1100px; margin:auto; border-left: 6px solid var(--verde-suave); border-right: 6px solid var(--verde-suave); padding-left: 15px; padding-right: 15px; }
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card {
+  background: var(--verde-suave);
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;       /* 🔥 altura fija para TODAS */
+  object-fit: cover;   /* 🔥 recorta sin deformar */
+  object-position: center; /* centra la imagen */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(120deg, #7bc47f, #a5d6a7, #7bc47f);
+  z-index: -1;
+  border-radius: 12px;
+  background-size: 300% 300%;
+  animation: borderAnim 4s linear infinite;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+@keyframes borderAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.card:hover { transform: translateY(-5px); }
+.card:hover { transform:translateY(-5px); }
+
+.img-placeholder {
+  height:150px;
+  background:#ccc;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.fade { opacity:0; transform:translateY(20px); transition:0.6s; }
+.fade.visible { opacity:1; transform:translateY(0); }
+
+footer { background:var(--verde); color:white; text-align:center; padding:20px; }
+
+@media(max-width:768px){
+  .hero h1{font-size:1.8rem;}
+}
+
+/* ===== NUEVO ESTILO SECCIONES ===== */
+.tips-section {
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  border-top: 4px solid #7bc47f;
+  border-bottom: 4px solid #7bc47f;
+}
+
+.tips-list {
+  list-style: none;
+  margin-top: 20px;
+  padding-left: 0;
+}
+
+.tips-list li {
+  background: white;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-left: 5px solid #7bc47f;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.tips-list li:hover {
+  transform: translateX(5px);
+  background: #f1f8f4;
+}
+
+.emprendimiento-section {
+  background: #f9fdf9;
+}
+
+.alt-card {
+  background: white;
+  border: 2px dashed #7bc47f;
+}
+
+.alt-card:hover {
+  transform: scale(1.05);
+}
